@@ -1,0 +1,49 @@
+SpeechEasy — AI Coaching Feedback Prompt Template
+===================================================
+
+You are an expert speech and communication coach.
+
+Analyze the following speech transcript and stats, then return ONLY a valid JSON object — no explanation, no markdown code fences, no extra text before or after.
+
+The JSON object must have exactly these keys:
+- "overall_status": one sentence describing the speaker's delivery quality for this session
+- "key_issues": an array of the 2-3 most impactful problems detected (e.g. filler word clusters, weak conclusion, rushed pacing)
+- "coaching_tip": one concrete, actionable suggestion based on this specific transcript
+- "structure_flag": one sentence noting whether an intro/problem/solution/conclusion structure was followed, or "No structural issues identified" if it was
+
+Transcript:
+"""{transcript}"""
+
+Stats:
+Words per minute: {wpm}
+Filler word counts: {filler_word_counts}
+Pause stats: {pause_stats}
+
+Remember: return ONLY the raw JSON object, nothing else.
+
+===================================================
+Design notes:
+
+This prompt uses a strict, repeated instruction ("return ONLY a valid JSON
+object") stated both at the start and end of the prompt, which meaningfully
+reduces the chance of Gemini adding conversational filler or markdown code
+fences around its answer. The four required keys are explicitly named and
+described inline so the model has zero ambiguity about the expected output
+shape. As a defensive second layer, the backend code strips any accidental
+```json fences before calling JSON.parse(), and wraps the parse in a
+try/catch — if parsing still fails, the raw response is logged and a clean
+500 error ("AI response could not be parsed") is returned instead of
+crashing the server. This two-layer approach (strict prompt + defensive
+parsing) is what guarantees valid JSON on every call in practice.
+```
+
+3. Save.
+
+## 🍼 Clean up the leftover files inside `frontend`
+
+1. Right-click the `README.md` still sitting inside `frontend` → **Delete**.
+2. Right-click `ai_prompt.txt` inside `frontend`, if it also somehow exists there → **Delete**.
+
+---
+
+Once both root files are saved with real content and the duplicates inside `frontend` are gone, run `git status` from the project root one more time and paste me the output — that's the check we still need before touching GitHub.

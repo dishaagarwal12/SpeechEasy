@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg-base: #fdf6ea;
+  --bg-gradient-end: #fbe9d0;
+  --surface: #ffffff;
+  --sidebar-bg: #2b2419;
+  --sidebar-bg-alt: #453b2c;
+  --border-color: #eee3cd;
+  --text-primary: #2b2419;
+  --text-muted: #8a8578;
+  --accent-amber: #e8961f;
+  --accent-teal: #0f9e8f;
+  --accent-red: #d23c37;
+  --on-amber: #ffffff;
+}
+
+[data-theme='dark'] {
+  --bg-base: #15120c;
+  --bg-gradient-end: #0f0d09;
+  --surface: #221e17;
+  --sidebar-bg: #0f0d09;
+  --sidebar-bg-alt: #2c2820;
+  --border-color: #3a352a;
+  --text-primary: #f0ece2;
+  --text-muted: #9a9384;
+  --accent-amber: #f5a623;
+  --accent-teal: #2dd4bf;
+  --accent-red: #ef5350;
+  --on-amber: #1a1712;
+}
+
+body {
+  background: linear-gradient(160deg, var(--bg-base) 0%, var(--bg-gradient-end) 100%);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.font-display {
+  font-family: 'Poppins', sans-serif;
+}
