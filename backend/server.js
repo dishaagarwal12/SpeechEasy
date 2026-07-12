@@ -7,16 +7,16 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const sessionRoutes = require('./routes/sessionRoutes');
 const interviewRoutes = require('./routes/interviewRoutes');
-const helmet = require('helmet'); // add this import near your others
+const helmet = require('helmet');
 
 connectDB();
 
 const app = express();
 
 app.use(express.json());
-app.use(helmet()); // add this line right after app.use(express.json());
+app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: ['http://localhost:5173', 'https://speech-easy-six.vercel.app'],
   credentials: true,
 }));
 
