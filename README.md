@@ -1,3 +1,7 @@
+🔗 **[Live Demo](https://speech-easy-six.vercel.app)** &nbsp;|&nbsp; **[Backend API](https://speecheasy-api.onrender.com)**
+
+> **Note:** The backend is hosted on Render's free tier, which spins down after periods of inactivity. The first request after idle time may take 10–30 seconds to respond while it wakes up — subsequent requests will be fast.
+
 # SpeechEasy 🎤
 
 An AI-powered speech coaching platform that helps you practice public speaking, track your progress over time, and prepare for real interviews — with live speech recognition, real-time filler-word and pace tracking, and Gemini-powered AI coaching feedback.
